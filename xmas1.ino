@@ -13,10 +13,16 @@
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_PIX, PIN, NEO_GRB + NEO_KHZ800);
 
+uint32_t colors[5];
 
 void setup() {
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
+  colors[0] = strip.Color(127, 0, 0);
+  colors[1] = strip.Color(0, 127, 0);
+  colors[2] = strip.Color(79, 0, 127);
+  colors[3] = strip.Color(127, 127, 0);
+  colors[4] = strip.Color(0, 0, 127);
 }
 
 void loop() {
@@ -29,30 +35,12 @@ void loop() {
 }
 
 void colored_xmas() {
-  for(int i = 0; i < NUM_PIX; i++)
+  for(int i = 0; i < NUM_PIX/2; i++)
   {
-    if (i % 10 == 0)
-      strip.setPixelColor(i, strip.Color(127, 0, 0));
-    if (i % 10 == 1)
-      strip.setPixelColor(i, strip.Color(127, 0, 0));
-    if (i % 10 == 2)
-      strip.setPixelColor(i, strip.Color(0, 127, 0));
-    if (i % 10 == 3)
-      strip.setPixelColor(i, strip.Color(0, 127, 0));
-    if (i % 10 == 4)
-      strip.setPixelColor(i, strip.Color(79, 0, 127));
-    if (i % 10 == 5)
-      strip.setPixelColor(i, strip.Color(79, 0, 127));
-    if (i % 10 == 6)
-      strip.setPixelColor(i, strip.Color(127, 127, 0));
-    if (i % 10 == 7)
-      strip.setPixelColor(i, strip.Color(127, 127, 0));
-    if (i % 10 == 8)
-      strip.setPixelColor(i, strip.Color(0, 0, 127));
-    if (i % 10 == 9)
-      strip.setPixelColor(i, strip.Color(0, 0, 127));
-
+    strip.setPixelColor(i*2, colors[i%5]);
+    strip.setPixelColor(i*2+1, colors[i%5]);
   }
+
   strip.show();
   delay(10000);  
 }
@@ -61,28 +49,10 @@ void colored_xmas() {
 void colored_xmas_sparkle() {
   for(int count = 0; count < 100; count++)
   {
-    for(int i = 0; i < NUM_PIX; i++)
+    for(int i = 0; i < NUM_PIX/2; i++)
     {
-      if (i % 10 == 0)
-        strip.setPixelColor(i, strip.Color(127, 0, 0));
-      if (i % 10 == 1)
-        strip.setPixelColor(i, strip.Color(127, 0, 0));
-      if (i % 10 == 2)
-        strip.setPixelColor(i, strip.Color(0, 127, 0));
-      if (i % 10 == 3)
-        strip.setPixelColor(i, strip.Color(0, 127, 0));
-      if (i % 10 == 4)
-        strip.setPixelColor(i, strip.Color(79, 0, 127));
-      if (i % 10 == 5)
-        strip.setPixelColor(i, strip.Color(79, 0, 127));
-      if (i % 10 == 6)
-        strip.setPixelColor(i, strip.Color(127, 127, 0));
-      if (i % 10 == 7)
-        strip.setPixelColor(i, strip.Color(127, 127, 0));
-      if (i % 10 == 8)
-        strip.setPixelColor(i, strip.Color(0, 0, 127));
-      if (i % 10 == 9)
-        strip.setPixelColor(i, strip.Color(0, 0, 127));
+      strip.setPixelColor(i*2, colors[i%5]);
+      strip.setPixelColor(i*2+1, colors[i%5]);
     }
     for(int i = 0; i < NUM_PIX / 10; i++)
     {
@@ -215,49 +185,13 @@ void xmas_explosion() {
     strip.show();
     delay(20);
   }
+  
   for(int i = NUM_PIX/2-1; i >= 0; i--)
   {
     int j = NUM_PIX/2-i + NUM_PIX/2-1;
-    if (i % 10 == 0)
-      strip.setPixelColor(i, strip.Color(127, 0, 0));
-    if (i % 10 == 1)
-      strip.setPixelColor(i, strip.Color(127, 0, 0));
-    if (i % 10 == 2)
-      strip.setPixelColor(i, strip.Color(0, 127, 0));
-    if (i % 10 == 3)
-      strip.setPixelColor(i, strip.Color(0, 127, 0));
-    if (i % 10 == 4)
-      strip.setPixelColor(i, strip.Color(79, 0, 127));
-    if (i % 10 == 5)
-      strip.setPixelColor(i, strip.Color(79, 0, 127));
-    if (i % 10 == 6)
-      strip.setPixelColor(i, strip.Color(127, 127, 0));
-    if (i % 10 == 7)
-      strip.setPixelColor(i, strip.Color(127, 127, 0));
-    if (i % 10 == 8)
-      strip.setPixelColor(i, strip.Color(0, 0, 127));
-    if (i % 10 == 9)
-      strip.setPixelColor(i, strip.Color(0, 0, 127));
-    if (j % 10 == 0)
-      strip.setPixelColor(j, strip.Color(127, 0, 0));
-    if (j % 10 == 1)
-      strip.setPixelColor(j, strip.Color(127, 0, 0));
-    if (j % 10 == 2)
-      strip.setPixelColor(j, strip.Color(0, 127, 0));
-    if (j % 10 == 3)
-      strip.setPixelColor(j, strip.Color(0, 127, 0));
-    if (j % 10 == 4)
-      strip.setPixelColor(j, strip.Color(79, 0, 127));
-    if (j % 10 == 5)
-      strip.setPixelColor(j, strip.Color(79, 0, 127));
-    if (j % 10 == 6)
-      strip.setPixelColor(j, strip.Color(127, 127, 0));
-    if (j % 10 == 7)
-      strip.setPixelColor(j, strip.Color(127, 127, 0));
-    if (j % 10 == 8)
-      strip.setPixelColor(j, strip.Color(0, 0, 127));
-    if (j % 10 == 9)
-      strip.setPixelColor(j, strip.Color(0, 0, 127));
+
+    strip.setPixelColor(i, colors[(i%10)/2]);
+    strip.setPixelColor(j, colors[(j%10)/2]);
     strip.show();
     delay(20);
   }
