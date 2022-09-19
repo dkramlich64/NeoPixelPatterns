@@ -16,6 +16,12 @@ def constrain(low, high, value):
 np.fill((255, 127, 0))
 np.show()
 
+'''
+Function: Fire
+Description: Creates a flame effect on a strip of neopixels
+Parameters: background: base color for flame, foreground: color used to flash / highlight
+return value: none
+'''
 def fire(background, foreground):
     for j in range(20):
         intensity = random.random() * 0.7 + 0.3
