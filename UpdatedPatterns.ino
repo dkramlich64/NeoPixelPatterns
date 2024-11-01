@@ -163,3 +163,39 @@ void theaterChase2Color(int red1, int green1, int blue1, int red2, int green2, i
     count++;
   }
 }
+
+void theater_chase(uint32_t *color_array, int number, uint8_t repeat, bool forward) {
+  uint8_t loop, direction;
+  if (forward) {
+    loop = number - 1;
+    direction = -1;
+  }
+  else {
+    loop = 0;
+    direction = 1;
+  }
+  for(int j = 0; j < repeat; j++) {
+    for(int i = 0; i < LED_COUNT; i++) {
+      strip.setPixelColor(i, color_array[(i + loop) % number]);
+    }
+    strip.show();
+    delay(100);
+    loop = (loop + direction) % number;
+  }
+}
+
+void wipe(uint32_t wipe_color, uint16_t sleep) {
+  for(int i = 0; i < strip.numPixels(); i++) {
+    strip.setPixelColor(i, wipe_color);
+    strip.show();
+    delay(sleep);
+  }
+}
+
+void reverse_wipe(uint32_t wipe_color, uint16_t sleep) {
+  for(int i = strip.numPixels() - 1; i >= 0; i--) {
+    strip.setPixelColor(i, wipe_color);
+    strip.show();
+    delay(sleep);
+  }
+}
