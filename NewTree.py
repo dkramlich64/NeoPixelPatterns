@@ -83,6 +83,7 @@ while True:
     random_fill(xmas_colors)
     time.sleep(5)
     sparkle(xmas_colors, (127, 127, 127))
+    random_fill(xmas_colors)
     grinch_wipe(black)
     time.sleep(2)
     random_fill(xmas_colors)
