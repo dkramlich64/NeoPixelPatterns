@@ -87,7 +87,7 @@ while True:
     grinch_wipe(black)
     time.sleep(2)
     random_fill(xmas_colors)
-    theater_chase(xmas_colors, np.n*5, speed=0.15)
+    theater_chase(xmas_colors, np.n*2, speed=0.23)
     random_wipe(black)
     
 
