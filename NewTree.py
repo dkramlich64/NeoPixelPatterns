@@ -10,6 +10,7 @@ orange = (255, 32, 0)
 purple = (64, 0, 255)
 black = (0, 0, 0)
 white = (127, 127, 127)
+warm_white = (255, 244, 200)
 
 np = NeoPixel(board.GP2, 100, auto_write=False, brightness=1.0, pixel_order="RGB")
 
@@ -84,10 +85,9 @@ while True:
     time.sleep(5)
     sparkle(xmas_colors, (127, 127, 127))
     random_fill(xmas_colors)
+    random_fill([warm_white])
     grinch_wipe(black)
     time.sleep(2)
     random_fill(xmas_colors)
     theater_chase(xmas_colors, np.n*2, speed=0.23)
     random_wipe(black)
-    
-
